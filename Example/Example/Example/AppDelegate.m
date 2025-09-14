@@ -25,8 +25,10 @@
 - (void)settingBJAds {
     [BJAdSdkConfig shareInstance].level = BJAdLogLevel_Debug;
     BJConfigModel * model = [[BJConfigModel alloc]init];
-    model.debugMode = NO;
-    [[BJAdSdkConfig shareInstance] registerAppID:@"0752f4d7622e810f" withConfig:model];
+    model.debugMode = YES;
+    // 国内广告测试：a06460e31fce62fa
+    // 海外广告测试：e3aa00b33d0927ec
+    [[BJAdSdkConfig shareInstance] registerAppID:@"e3aa00b33d0927ec" withConfig:model];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
