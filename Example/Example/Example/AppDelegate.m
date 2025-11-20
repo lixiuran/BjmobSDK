@@ -28,6 +28,7 @@
     model.debugMode = YES;
     // 国内广告测试：a06460e31fce62fa
     // 海外广告测试：e3aa00b33d0927ec
+    model.testDeviceIdentifiersGG = @[@"DB161DFE-9AAC-4AEC-9865-25D3CE848935"];
     [[BJAdSdkConfig shareInstance] registerAppID:@"e3aa00b33d0927ec" withConfig:model];
 }
 

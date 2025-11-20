@@ -7,9 +7,9 @@ target 'ExampleSwift' do
   use_frameworks!
   project 'ExampleSwift/ExampleSwift.xcodeproj'
 #  pod 'Masonry', '~> 1.1.0'
-#  pod 'BjmobAdsSDK', :path => '../'
+  pod 'BjmobAdsSDK', :path => '../'
   #pod 'BjmobAdsSDK', '0.0.36'
-  pod 'BjmobAdsSDK', :git  => 'https://github.com/lixiuran/BjmobSDK.git', :tag =>'0.0.38'
+#  pod 'BjmobAdsSDK', :git  => 'https://github.com/lixiuran/BjmobSDK.git', :tag =>'0.0.38'
   pod 'Bugly'
 end
 
@@ -17,10 +17,10 @@ target 'Example' do
   use_frameworks!
   project 'Example/Example.xcodeproj'
   pod 'Masonry', '~> 1.1.0'
-  # pod 'BjmobAdsSDK', :path => '../'
+   pod 'BjmobAdsSDK', :path => '../'
   #pod 'BjmobAdsSDK', '0.0.36'
   
- pod 'BjmobAdsSDK', :git  => 'https://github.com/lixiuran/BjmobSDK.git', :tag =>'0.0.38'
+# pod 'BjmobAdsSDK', :git  => 'https://github.com/lixiuran/BjmobSDK.git', :tag =>'0.0.38'
 end
 
 
@@ -31,9 +31,26 @@ post_install do |installer|
                   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
                   # 解决沙盒权限问题
                   config.build_settings['ENABLE_BITCODE'] = 'NO'
-                  config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
-                  config.build_settings['CODE_SIGNING_REQUIRED'] = 'NO'
+                  # 禁用用户脚本沙盒，解决沙盒扩展错误
+                  config.build_settings['ENABLE_USER_SCRIPT_SANDBOXING'] = 'NO'
+                  # 注意：不应禁用代码签名，这是 iOS 应用运行所必需的
+                  # CODE_SIGNING_ALLOWED 和 CODE_SIGNING_REQUIRED 必须保持默认值（YES）
                end
           end
+   end
+   
+   # 直接修改主项目的 pbxproj 文件，确保 ENABLE_USER_SCRIPT_SANDBOXING = NO
+   project_files = [
+       File.join(installer.sandbox.root.parent, 'Example/Example.xcodeproj/project.pbxproj'),
+       File.join(installer.sandbox.root.parent, 'ExampleSwift/ExampleSwift.xcodeproj/project.pbxproj')
+   ]
+   
+   project_files.each do |project_file|
+       if File.exist?(project_file)
+           content = File.read(project_file)
+           # 替换所有 ENABLE_USER_SCRIPT_SANDBOXING = YES 为 NO
+           content.gsub!(/ENABLE_USER_SCRIPT_SANDBOXING\s*=\s*YES;/, 'ENABLE_USER_SCRIPT_SANDBOXING = NO;')
+           File.write(project_file, content)
+       end
    end
 end

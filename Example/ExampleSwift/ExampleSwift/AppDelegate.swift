@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        model.testDeviceIdentifiersGG = ["F38EA565-26DF-4AB7-900D-EBF1E5AF2154"];
         // 国内广告测试：a06460e31fce62fa
         // 海外广告测试：e3aa00b33d0927ec
-        BJAdSdkConfig.shareInstance().registerAppID("e3aa00b33d0927ec", withConfig: model)
+        BJAdSdkConfig.shareInstance().registerAppID("a06460e31fce62fa", withConfig: model)
     }
 }
 

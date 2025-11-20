@@ -100,7 +100,9 @@
     [self.view addSubview:self.containerView];
 
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(0);
+//        make.left.right.mas_equalTo(10);
+        make.left.mas_equalTo(15);
+        make.right.mas_equalTo(-15);
         make.top.mas_equalTo(330);
         make.height.mas_equalTo(200);
     }];
