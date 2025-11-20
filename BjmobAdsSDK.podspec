@@ -9,16 +9,15 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "BjmobAdsSDK"
-  spec.version      = "0.0.38"
+  spec.version      = "0.0.39"
   spec.ios.deployment_target = '12.0'
   spec.platform     = :ios, "12.0"
   spec.requires_arc = true
 
   spec.license      = { :type => "MIT", :file => "LICENSE" }
-  spec.summary      = "BjmobAdsSDK for iOS"
+  spec.summary      = "BjmobSDK for iOS"
   spec.description  = <<-DESC
-  欢迎大家使用依然在线BjmobAdsSDK, 提供成熟聚合方案。
-  为开发者提供便利，快速集成。
+  BjmobSDK for iOS
   DESC
 
   spec.homepage     = "https://github.com/lixiuran/BjmobSDK"
