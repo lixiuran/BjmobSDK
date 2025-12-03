@@ -3,7 +3,7 @@
 
 ## 1. 快速接入
 
-下面介绍BjmobAds的快速接入方法，开发中也可以参考[Example](https://github.com/bigbigpro/BjmobAdsSDK/tree/main/Example)下的示例工程，快速了解。
+下面介绍BjmobAds的快速接入方法，开发中也可以参考[Example](https://github.com/lixiuran/BjmobSDK/tree/main/Example)下的示例工程，快速了解。
 
 ### 1.1 开发环境准备
 
@@ -13,8 +13,7 @@
 ### 1.2 引入SDK
 
 ```
-  pod 'BjmobAdsSDK', '0.0.35'
-  
+ pod 'BjmobAdsSDK', :git  => 'https://github.com/lixiuran/BjmobSDK.git', :tag =>'0.0.39' 
   
   执行 pod install --repo-update
 ```
@@ -247,7 +246,7 @@
   <string>请求idfa权限</string>
 ```
 
-#### 1.3.5 添加初始化数据文件
+#### 1.3.5 添加初始化数据文件（废弃，不在需要）
 
 将开发者提供的下面5个文件添加到项目中
 
