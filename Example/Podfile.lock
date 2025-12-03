@@ -51,7 +51,7 @@ PODS:
   - Masonry (1.1.0)
 
 DEPENDENCIES:
-  - BjmobAdsSDK (from `../`)
+  - BjmobAdsSDK (from `https://github.com/lixiuran/BjmobSDK.git`, tag `0.0.39`)
   - Bugly
   - Masonry (~> 1.1.0)
 
@@ -68,7 +68,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   BjmobAdsSDK:
-    :path: "../"
+    :git: https://github.com/lixiuran/BjmobSDK.git
+    :tag: 0.0.39
+
+CHECKOUT OPTIONS:
+  BjmobAdsSDK:
+    :git: https://github.com/lixiuran/BjmobSDK.git
+    :tag: 0.0.39
 
 SPEC CHECKSUMS:
   Ads-CN: 4dcb5105a7105f76bcefb246e69daf6c39db2778
@@ -81,6 +87,6 @@ SPEC CHECKSUMS:
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: ecd2b3f6a549dd83bfd39d6ab5c091e9bf37c900
+PODFILE CHECKSUM: a6108f639e7d2689c05e6b270628992e1396a22a
 
 COCOAPODS: 1.16.2
